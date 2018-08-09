@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="生活感悟," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -79,15 +79,18 @@
 
 
 
-<meta name="keywords" content="生活感悟">
+<meta name="description" content="Chrome 控制台以表格的形式打印对象： console.table({a: 1, b: 2}); 计算一段代码运行的时间： console.time(&amp;apos;flag-name&amp;apos;); some code here... console.timeEnd(&amp;apos;flag-name&amp;apos;); 类型转化 转化为字符串：String()和.toString() 转化为数字：Nu">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不忘初心，埋头苦干">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/index.html">
+<meta property="og:title" content="温习JavaScript的笔记">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/温习JavaScript的笔记/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Chrome 控制台以表格的形式打印对象： console.table({a: 1, b: 2}); 计算一段代码运行的时间： console.time(&amp;apos;flag-name&amp;apos;); some code here... console.timeEnd(&amp;apos;flag-name&amp;apos;); 类型转化 转化为字符串：String()和.toString() 转化为数字：Nu">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-26T07:34:48.060Z">
+<meta property="og:updated_time" content="2018-08-09T01:51:10.343Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不忘初心，埋头苦干">
+<meta name="twitter:title" content="温习JavaScript的笔记">
+<meta name="twitter:description" content="Chrome 控制台以表格的形式打印对象： console.table({a: 1, b: 2}); 计算一段代码运行的时间： console.time(&amp;apos;flag-name&amp;apos;); some code here... console.timeEnd(&amp;apos;flag-name&amp;apos;); 类型转化 转化为字符串：String()和.toString() 转化为数字：Nu">
 
 
 
@@ -117,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/02/温习JavaScript的笔记/"/>
 
 
 
 
 
-  <title>不忘初心，埋头苦干 | Hexo</title>
+  <title>温习JavaScript的笔记 | Hexo</title>
   
 
 
@@ -240,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/温习JavaScript的笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vidots Nomad">
@@ -257,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不忘初心，埋头苦干</h1>
+          <h1 class="post-title" itemprop="name headline">温习JavaScript的笔记</h1>
         
 
         <div class="post-meta">
@@ -269,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T14:59:27+08:00">
-                2018-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-02T15:13:19+08:00">
+                2018-08-02
               </time>
             
 
@@ -307,7 +310,63 @@
       
 
       
-        
+        <h4 id="Chrome-控制台"><a href="#Chrome-控制台" class="headerlink" title="Chrome 控制台"></a>Chrome 控制台</h4><p>以表格的形式打印对象：</p>
+<pre><code>console.table({a: 1, b: 2});
+</code></pre><p>计算一段代码运行的时间：</p>
+<pre><code>console.time(&apos;flag-name&apos;);
+some code here...
+console.timeEnd(&apos;flag-name&apos;);
+</code></pre><h4 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h4><ul>
+<li>转化为字符串：<code>String()</code>和<code>.toString()</code></li>
+<li>转化为数字：<code>Number()</code>和<code>.parseInt()</code>、<code>.parseFloat()</code></li>
+</ul>
+<h4 id="琐碎知识点"><a href="#琐碎知识点" class="headerlink" title="琐碎知识点"></a>琐碎知识点</h4><ul>
+<li><code>==</code>：值比较；<code>===</code>：值和类型比较；</li>
+<li>作用域：<code>var</code>是函数作用域，而不是块作用域</li>
+</ul>
+<h4 id="DOM-元素选择"><a href="#DOM-元素选择" class="headerlink" title="DOM 元素选择"></a>DOM 元素选择</h4><p>单个节点选择器：</p>
+<ul>
+<li><code>getElementById()</code></li>
+<li><code>querySelector()</code></li>
+</ul>
+<p>多个节点选择器：</p>
+<ul>
+<li><code>getElementsByClassName()</code></li>
+<li><code>getElementsByTagName()</code></li>
+<li><code>querySelectorAll()</code></li>
+</ul>
+<h4 id="DOM-元素遍历"><a href="#DOM-元素遍历" class="headerlink" title="DOM 元素遍历"></a>DOM 元素遍历</h4><p>获取子节点、父节点、兄弟节点</p>
+<h4 id="DOM-元素创建"><a href="#DOM-元素创建" class="headerlink" title="DOM 元素创建"></a>DOM 元素创建</h4><ul>
+<li>创建元素：<code>document.createElement(&#39;p&#39;)</code></li>
+<li>添加元素：<code>appendChild()</code></li>
+<li>设置属性：<code>node.setAttribute()</code></li>
+</ul>
+<h4 id="替换、删除-DOM-元素"><a href="#替换、删除-DOM-元素" class="headerlink" title="替换、删除 DOM 元素"></a>替换、删除 DOM 元素</h4><ul>
+<li>替换元素：<code>parentNode.replaceChild(newNode, oldNode)</code></li>
+<li>移除元素：<code>remove()</code>和<code>removeChild()</code></li>
+</ul>
+<h4 id="Event-相关"><a href="#Event-相关" class="headerlink" title="Event 相关"></a>Event 相关</h4><ul>
+<li>Event Bubbling：事件触发时，从子元素到父元素，一层层传递；</li>
+<li><p>Event Delegation：</p>
+<pre><code>const delItem = document.querySelector(&quot;.delete-item&quot;)
+delItem.addEventListener(&apos;click&apos;, e =&gt; console.log(e.target));
+</code></pre><p>//如果 document 中有多个 class 为 delete-item 的元素时，事件监听器只会对第一个元素起作用；为了解决这个问题，就用到 Event Delegation</p>
+<pre><code>const container = document.querySelector(&apos;#item-container&apos;);
+container.addEventListener(&apos;click&apos;, e =&gt; {
+if(e.target.className === &apos;delete-item&apos;) {
+    console.log(e.target);
+}
+});
+</code></pre></li>
+</ul>
+<h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>localStorage 对象(以字符串的形式存储的)：</p>
+<ul>
+<li><code>localStorage.setItem(key, value);</code></li>
+<li><code>localStorage.getItem(key);</code></li>
+<li><code>localStorage.removeItem(key);</code></li>
+</ul>
+<p>sessionStorage 与 localStorage 相似</p>
+
       
     </div>
     
@@ -324,7 +383,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活感悟/" rel="tag"># 生活感悟</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -337,14 +396,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/31/Electron与React开发桌面应用/" rel="next" title="Electron与React开发桌面应用">
+                <i class="fa fa-chevron-left"></i> Electron与React开发桌面应用
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/29/MEAN-Stack-Front-To-Back视频学习笔记/" rel="prev" title="MEAN Stack Front To Back视频学习笔记">
-                MEAN Stack Front To Back视频学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/04/Modern-JavaScript-From-The-Beginning视频学习笔记/" rel="prev" title="Modern-JavaScript-From-The-Beginning视频学习笔记">
+                Modern-JavaScript-From-The-Beginning视频学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -397,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Chrome-控制台"><span class="nav-number">1.</span> <span class="nav-text">Chrome 控制台</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类型转化"><span class="nav-number">2.</span> <span class="nav-text">类型转化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#琐碎知识点"><span class="nav-number">3.</span> <span class="nav-text">琐碎知识点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-元素选择"><span class="nav-number">4.</span> <span class="nav-text">DOM 元素选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-元素遍历"><span class="nav-number">5.</span> <span class="nav-text">DOM 元素遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-元素创建"><span class="nav-number">6.</span> <span class="nav-text">DOM 元素创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换、删除-DOM-元素"><span class="nav-number">7.</span> <span class="nav-text">替换、删除 DOM 元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Event-相关"><span class="nav-number">8.</span> <span class="nav-text">Event 相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Storage"><span class="nav-number">9.</span> <span class="nav-text">Storage</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

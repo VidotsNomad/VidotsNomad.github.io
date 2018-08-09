@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="生活感悟," />
+  <meta name="keywords" content="Electron," />
 
 
 
@@ -79,15 +79,18 @@
 
 
 
-<meta name="keywords" content="生活感悟">
+<meta name="description" content="搭建开发环境安装create-react-app： $ npm install -g create-react-app 创建 React 应用： $ create-react-app mook 安装 Electron： $ yarn add electron --dev 修改package.json文件： * 在scripts里添加：&amp;quot;electron-start&amp;quot;: &amp;quo">
+<meta name="keywords" content="Electron">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不忘初心，埋头苦干">
-<meta property="og:url" content="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/index.html">
+<meta property="og:title" content="Electron与React开发桌面应用">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/Electron与React开发桌面应用/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="搭建开发环境安装create-react-app： $ npm install -g create-react-app 创建 React 应用： $ create-react-app mook 安装 Electron： $ yarn add electron --dev 修改package.json文件： * 在scripts里添加：&amp;quot;electron-start&amp;quot;: &amp;quo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-26T07:34:48.060Z">
+<meta property="og:updated_time" content="2018-08-09T01:51:36.711Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="不忘初心，埋头苦干">
+<meta name="twitter:title" content="Electron与React开发桌面应用">
+<meta name="twitter:description" content="搭建开发环境安装create-react-app： $ npm install -g create-react-app 创建 React 应用： $ create-react-app mook 安装 Electron： $ yarn add electron --dev 修改package.json文件： * 在scripts里添加：&amp;quot;electron-start&amp;quot;: &amp;quo">
 
 
 
@@ -117,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/31/Electron与React开发桌面应用/"/>
 
 
 
 
 
-  <title>不忘初心，埋头苦干 | Hexo</title>
+  <title>Electron与React开发桌面应用 | Hexo</title>
   
 
 
@@ -240,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/26/不忘初心，埋头苦干/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/31/Electron与React开发桌面应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vidots Nomad">
@@ -257,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">不忘初心，埋头苦干</h1>
+          <h1 class="post-title" itemprop="name headline">Electron与React开发桌面应用</h1>
         
 
         <div class="post-meta">
@@ -269,8 +272,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T14:59:27+08:00">
-                2018-07-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-31T12:56:24+08:00">
+                2018-07-31
               </time>
             
 
@@ -307,7 +310,45 @@
       
 
       
-        
+        <h4 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h4><p>安装<code>create-react-app</code>：</p>
+<pre><code>$ npm install -g create-react-app
+</code></pre><p>创建 React 应用：</p>
+<pre><code>$ create-react-app mook
+</code></pre><p>安装 Electron：</p>
+<pre><code>$ yarn add electron --dev
+</code></pre><p>修改<code>package.json</code>文件：</p>
+<pre><code>* 在scripts里添加：&quot;electron-start&quot;: &quot;electron .&quot;
+* 添加：&quot;main&quot;: &quot;public/electron.js&quot;
+</code></pre><p>在<code>public</code>目录下创建<code>electron.js</code>，作为 Electron 的启动文件，在开发模式下，主窗口加载 HTML 文件的方式如下：</p>
+<pre><code>mainWindow.loadURL(&apos;http://localhost:3000&apos;)
+//确保React应用已经运行在该地址上
+</code></pre><p>运行程序：</p>
+<pre><code>$ yarn run start
+$ yarn run electron-start
+</code></pre><h4 id="创建稳定的开发与构建过程"><a href="#创建稳定的开发与构建过程" class="headerlink" title="创建稳定的开发与构建过程"></a>创建稳定的开发与构建过程</h4><p>添加<code>electron-builder</code>、<code>concurrently</code>、<code>wait-on</code>：</p>
+<pre><code>$ yarn add electron-builder wait-on concurrently --dev
+</code></pre><p>配置开发 scripts：</p>
+<pre><code>&quot;electron-dev&quot;: &quot;concurrently \&quot;yarn start\&quot; \&quot;wait-on http://localhost:3000 &amp;&amp; electron .\&quot;&quot;
+
+$ export BROWSER=none //通过设置这个可以不打开浏览器
+</code></pre><p>配置生产 scripts：</p>
+<pre><code>&quot;preelectron-pack&quot;: &quot;yarn build&quot;,
+&quot;electron-pack&quot;: &quot;build -c.extraMetadata.main=build/main.js&quot;(根据实际产生的文件位置配置)
+</code></pre><p>配置生产的信息(防止打包和 React 的 build 目录冲突)：</p>
+<pre><code>&quot;build&quot;: {
+    &quot;appId&quot;: &quot;com.mook&quot;,
+    &quot;files&quot;: [
+    &quot;build/**/*&quot;,
+    &quot;node_modules/**/*&quot;
+    ],
+    &quot;directories&quot;: {
+    &quot;buildResources&quot;: &quot;assets&quot;
+    }
+},
+&quot;homepage&quot;: &quot;./&quot;
+</code></pre><h4 id="修改-main-js-Electron-入口文件-支持开发与生产环境"><a href="#修改-main-js-Electron-入口文件-支持开发与生产环境" class="headerlink" title="修改 main.js(Electron 入口文件)支持开发与生产环境"></a>修改 main.js(Electron 入口文件)支持开发与生产环境</h4><p>安装<code>electron-is-dev</code>：</p>
+<pre><code>$ yarn add electron-is-dev
+</code></pre>
       
     </div>
     
@@ -324,7 +365,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生活感悟/" rel="tag"># 生活感悟</a>
+            <a href="/tags/Electron/" rel="tag"># Electron</a>
           
         </div>
       
@@ -337,14 +378,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/29/CSS-Pocket-Reference学习笔记/" rel="next" title="CSS Pocket Reference学习笔记">
+                <i class="fa fa-chevron-left"></i> CSS Pocket Reference学习笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/29/MEAN-Stack-Front-To-Back视频学习笔记/" rel="prev" title="MEAN Stack Front To Back视频学习笔记">
-                MEAN Stack Front To Back视频学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/02/温习JavaScript的笔记/" rel="prev" title="温习JavaScript的笔记">
+                温习JavaScript的笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -397,8 +442,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -449,6 +503,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#搭建开发环境"><span class="nav-number">1.</span> <span class="nav-text">搭建开发环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建稳定的开发与构建过程"><span class="nav-number">2.</span> <span class="nav-text">创建稳定的开发与构建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改-main-js-Electron-入口文件-支持开发与生产环境"><span class="nav-number">3.</span> <span class="nav-text">修改 main.js(Electron 入口文件)支持开发与生产环境</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
