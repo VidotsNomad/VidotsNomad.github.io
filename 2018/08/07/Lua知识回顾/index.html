@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="无聊之余，想要找个东西来打发时间和排解心中的百无聊赖，于是乎，想要重新玩一下 corona 这个游戏开发引擎。当然，第一步就是重温下以前学过的 lua 编程语言，这次我打算在 Windows 操作系统上摆弄下这玩意。 首先进入lua 官网找到二进制文件的下载地址，下载好了之后，解压后先把文件夹里的luax.ext(x 代表版本号)文件修改为lua.exe，然后将该目录添加到 Path 系统变量中，">
+<meta name="description" content="学习 Lua 编程语言的比较">
 <meta name="keywords" content="Lua">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lua知识回顾">
 <meta property="og:url" content="http://yoursite.com/2018/08/07/Lua知识回顾/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="无聊之余，想要找个东西来打发时间和排解心中的百无聊赖，于是乎，想要重新玩一下 corona 这个游戏开发引擎。当然，第一步就是重温下以前学过的 lua 编程语言，这次我打算在 Windows 操作系统上摆弄下这玩意。 首先进入lua 官网找到二进制文件的下载地址，下载好了之后，解压后先把文件夹里的luax.ext(x 代表版本号)文件修改为lua.exe，然后将该目录添加到 Path 系统变量中，">
+<meta property="og:description" content="学习 Lua 编程语言的比较">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-08T05:50:43.386Z">
+<meta property="og:updated_time" content="2018-08-13T13:42:41.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua知识回顾">
-<meta name="twitter:description" content="无聊之余，想要找个东西来打发时间和排解心中的百无聊赖，于是乎，想要重新玩一下 corona 这个游戏开发引擎。当然，第一步就是重温下以前学过的 lua 编程语言，这次我打算在 Windows 操作系统上摆弄下这玩意。 首先进入lua 官网找到二进制文件的下载地址，下载好了之后，解压后先把文件夹里的luax.ext(x 代表版本号)文件修改为lua.exe，然后将该目录添加到 Path 系统变量中，">
+<meta name="twitter:description" content="学习 Lua 编程语言的比较">
 
 
 
@@ -310,8 +310,13 @@
       
 
       
-        <p>无聊之余，想要找个东西来打发时间和排解心中的百无聊赖，于是乎，想要重新玩一下 corona 这个游戏开发引擎。当然，第一步就是重温下以前学过的 lua 编程语言，这次我打算在 Windows 操作系统上摆弄下这玩意。</p>
+        <p>学习 Lua 编程语言的比较</p>
+<a id="more"></a>
+<p>无聊之余，想要找个东西来打发时间和排解心中的百无聊赖，于是乎，想要重新玩一下 corona 这个游戏开发引擎。当然，第一步就是重温下以前学过的 lua 编程语言，这次我打算在 Windows 操作系统上摆弄下这玩意。</p>
 <p>首先进入<a href="http://www.lua.org/" target="_blank" rel="noopener">lua 官网</a>找到二进制文件的下载地址，下载好了之后，解压后先把文件夹里的<code>luax.ext</code>(x 代表版本号)文件修改为<code>lua.exe</code>，然后将该目录添加到 Path 系统变量中，在终端输入<code>lua -v</code>检查是否配置完成。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ul>
+<li>调用函数时，被调用的函数一定要在调用者之前定义</li>
+</ul>
 <h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>变量的作用域：</p>
 <ul>
 <li>全局变量：除非显式声明为 local，其它所有变量都是全局变量；</li>
@@ -545,7 +550,7 @@ mymathmodule.add(1, 2)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -591,7 +596,7 @@ mymathmodule.add(1, 2)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作符"><span class="nav-number">3.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">4.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件控制语句"><span class="nav-number">5.</span> <span class="nav-text">条件控制语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">6.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">7.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">8.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器"><span class="nav-number">9.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表"><span class="nav-number">10.</span> <span class="nav-text">表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块"><span class="nav-number">11.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元表"><span class="nav-number">12.</span> <span class="nav-text">元表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协程"><span class="nav-number">13.</span> <span class="nav-text">协程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">14.</span> <span class="nav-text">错误处理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">1.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作符"><span class="nav-number">4.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">5.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#条件控制语句"><span class="nav-number">6.</span> <span class="nav-text">条件控制语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">7.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串"><span class="nav-number">8.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">9.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器"><span class="nav-number">10.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表"><span class="nav-number">11.</span> <span class="nav-text">表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块"><span class="nav-number">12.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元表"><span class="nav-number">13.</span> <span class="nav-text">元表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#协程"><span class="nav-number">14.</span> <span class="nav-text">协程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#错误处理"><span class="nav-number">15.</span> <span class="nav-text">错误处理</span></a></li></ol></div>
             
 
           </div>

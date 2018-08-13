@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="源码分析," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="追风的日子">
-<meta property="og:url" content="http://yoursite.com/tags/PS/index.html">
+<meta name="description" content="Express 源码的简单分析，仅供个人理解。">
+<meta name="keywords" content="源码分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="expressjs源码分析">
+<meta property="og:url" content="http://yoursite.com/2018/08/12/expressjs源码分析/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
+<meta property="og:description" content="Express 源码的简单分析，仅供个人理解。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-13T13:43:41.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="追风的日子">
-<meta name="twitter:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
+<meta name="twitter:title" content="expressjs源码分析">
+<meta name="twitter:description" content="Express 源码的简单分析，仅供个人理解。">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/PS/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/12/expressjs源码分析/"/>
 
 
 
 
 
-  <title>Tag: PS | 追风的日子</title>
+  <title>expressjs源码分析 | 追风的日子</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,54 +229,167 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>PS<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/12/expressjs源码分析/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vidots Nomad">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追风的日子">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/09/PS学习-1/" itemprop="url">
-              
-                <span itemprop="name">PS学习<1></span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">expressjs源码分析</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-09T19:31:23+08:00"
-              content="2018-08-09" >
-          08-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-12T13:36:09+08:00">
+                2018-08-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Express 源码的简单分析，仅供个人理解。</p>
+<a id="more"></a>
+<h4 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h4><p>调用<code>http.createServer(requestListener)</code>来创建服务器，并设置监听器，而该<code>requestListener</code>就是调用<code>express()</code>函数产生的 app，app 其实是个函数，部分定义如下：</p>
+<pre><code>var app = function(req, res, next) {
+    app.handle(req, res, next);
+};
+</code></pre><p>每次客户端发来请求时，<code>request</code>事件就会触发，即就会调用<code>app()</code>这个函数，也就是调用<code>app.handle()</code>这个函数。</p>
+<p>我们首先来看一下，调用<code>express()</code>时到底执行了哪些操作：<code>express.js</code>文件是 express 框架的入口文件，对外暴露了<code>createApplication()</code>，其实就是我们在开发时调用的<code>express()</code>，该函数返回<code>app</code>这个函数。在<code>createApplication()</code>中，调用了<code>app.init()</code>，而<code>init()</code>方法是定义在<code>application.js</code>文件中的。</p>
+<p><code>init()</code>初始化了服务器，执行默认配置、默认中间件、路由映射方法的操作。在<code>application.js</code>文件中，包含下面的方法：</p>
+<ul>
+<li><code>set(setting, val)</code>：执行<code>this.settings[setting] = val</code>操作，如果参数没有 val，则直接返回<code>this.settings[setting]</code></li>
+</ul>
+<ul>
+<li><code>engine(ext, fn)</code>：执行<code>this.engines[extension] = fn</code>操作</li>
+<li><code>use(fn)</code>：其中，参数可能会传入路径。在该方法中，会调用<code>this.lazyrouter()</code>方法,该方法创建了 Router 对象(调用<code>new Router()</code>返回一个函数),该 Router 对象会赋值给<code>this._router</code>。而 Router 有个方法<code>use</code>和属性<code>stack</code>,<code>use</code>方法内部根据<code>path</code>和<code>fn</code>创建<code>layers</code>，并添加到<code>stack</code>中。</li>
+</ul>
+<p>下面来分析下有个请求过来时的操作：当有个请求过来时，内部的调用流程是这样的：<code>app()</code> - <code>app.handle()</code> - <code>app._router.handle()</code></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/源码分析/" rel="tag"># 源码分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/10/React和Nodejs全栈开发/" rel="next" title="React和Nodejs全栈开发">
+                <i class="fa fa-chevron-left"></i> React和Nodejs全栈开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/13/美句收集/" rel="prev" title="美句收集">
+                美句收集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +397,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -302,8 +421,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -318,7 +446,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -354,6 +482,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行流程"><span class="nav-number">1.</span> <span class="nav-text">运行流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -487,6 +631,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

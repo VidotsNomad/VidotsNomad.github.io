@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="位置相关 x、y、width、height决定物体的位置和大小，默认地，x、y 是物体的中心点。(可以把物体看出一个点，宽度和高度以该点进行延伸) display.contentCenterX：屏幕的行中点   display.contentCenterY：屏幕的列中点*">
+<meta name="description" content="Corona 游戏框架的简单回顾">
 <meta name="keywords" content="Corona">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Corona入门学习">
 <meta property="og:url" content="http://yoursite.com/2018/08/08/Corona入门学习/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="位置相关 x、y、width、height决定物体的位置和大小，默认地，x、y 是物体的中心点。(可以把物体看出一个点，宽度和高度以该点进行延伸) display.contentCenterX：屏幕的行中点   display.contentCenterY：屏幕的列中点*">
+<meta property="og:description" content="Corona 游戏框架的简单回顾">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-09T23:39:54.323Z">
+<meta property="og:updated_time" content="2018-08-13T13:44:36.325Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Corona入门学习">
-<meta name="twitter:description" content="位置相关 x、y、width、height决定物体的位置和大小，默认地，x、y 是物体的中心点。(可以把物体看出一个点，宽度和高度以该点进行延伸) display.contentCenterX：屏幕的行中点   display.contentCenterY：屏幕的列中点*">
+<meta name="twitter:description" content="Corona 游戏框架的简单回顾">
 
 
 
@@ -310,13 +310,36 @@
       
 
       
-        <a id="more"></a>
+        <p>Corona 游戏框架的简单回顾</p>
+<a id="more"></a>
 <h4 id="位置相关"><a href="#位置相关" class="headerlink" title="位置相关"></a>位置相关</h4><ul>
 <li><code>x</code>、<code>y</code>、<code>width</code>、<code>height</code>决定物体的位置和大小，默认地，x、y 是物体的中心点。(可以把物体看出一个点，宽度和高度以该点进行延伸)</li>
 <li><code>display.contentCenterX</code>：屏幕的行中点</li>
 </ul>
 <ul>
-<li><code>display.contentCenterY</code>：屏幕的列中点<br>*</li>
+<li><code>display.contentCenterY</code>：屏幕的列中点</li>
+<li><code>anchorX</code>和<code>anchorY</code>：设置物体的锚点，默认是 0.5(即把物体的中心放在 x、y 上)</li>
+</ul>
+<h4 id="config-lua-配置文件"><a href="#config-lua-配置文件" class="headerlink" title="config.lua 配置文件"></a>config.lua 配置文件</h4><ul>
+<li><code>width</code>和<code>height</code>声明了应用的内容区域(<code>content area</code>)大小,这些值并不是真实的像素值，因为内容区域会缩放来匹配设备的屏幕，不过<code>scale</code>会导致一些差异</li>
+<li><code>scale</code>取值：<code>letterbox</code> - 按照相同的比例缩放来填充屏幕，整个内容区域会出现在屏幕上，但是可能会导致黑边。<code>zoomEven</code> - 按照相同的比例缩放来填满屏幕，部分内容区域可能会出现在屏幕外面。</li>
+</ul>
+<h4 id="碰撞处理"><a href="#碰撞处理" class="headerlink" title="碰撞处理"></a>碰撞处理</h4><p>碰撞检测的两种类型：</p>
+<ul>
+<li>使用物体监听器来对单个物体进行碰撞监听</li>
+<li>使用运行时监听器来进行多个物体的碰撞监听</li>
+</ul>
+<h4 id="场景-Scene"><a href="#场景-Scene" class="headerlink" title="场景 Scene"></a>场景 Scene</h4><p>Corona 使用 Composer 系统来处理场景间的切换，场景的事件</p>
+<ul>
+<li>create：场景首次被创建，但是还未出现在屏幕上</li>
+<li>show：发生两次，场景出现在屏幕之前和之后马上会调用</li>
+<li>hide：发生两次</li>
+<li>destroy</li>
+</ul>
+<p>Composer 会将场景缓存在内存中，可以通过<code>composer.removeScene(&quot;game&quot;)</code>重置场景</p>
+<p>使用<code>composer.setVariable()</code>在某一场景中定义变量，可以在整个应用中获取；<code>composer.getVariable()</code>获取一变量。</p>
+<h4 id="应用发布"><a href="#应用发布" class="headerlink" title="应用发布"></a>应用发布</h4><ul>
+<li>图标<br>-</li>
 </ul>
 
       
@@ -437,7 +460,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -483,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置相关"><span class="nav-number">1.</span> <span class="nav-text">位置相关</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#位置相关"><span class="nav-number">1.</span> <span class="nav-text">位置相关</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#config-lua-配置文件"><span class="nav-number">2.</span> <span class="nav-text">config.lua 配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#碰撞处理"><span class="nav-number">3.</span> <span class="nav-text">碰撞处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#场景-Scene"><span class="nav-number">4.</span> <span class="nav-text">场景 Scene</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用发布"><span class="nav-number">5.</span> <span class="nav-text">应用发布</span></a></li></ol></div>
             
 
           </div>
