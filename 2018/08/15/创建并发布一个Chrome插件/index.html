@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="作为一个 Web 开发者，往 Chrome 浏览器上添加功能唯一需要学习的知识就是 Chrome 浏览器暴露的 JavaScript API。 搭建环境首先需要创建名字为manifest.json配置文件，该文件包含插件的信息，告诉 Chrome 该插件干什么的，需要哪些权限。 {     &amp;quot;manifest_version&amp;quot;: 2,     &amp;quot;name&amp;quot;">
+<meta name="description" content="创建并发布一个 Chrome 插件">
 <meta name="keywords" content="Chrome插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="创建并发布一个Chrome插件">
 <meta property="og:url" content="http://yoursite.com/2018/08/15/创建并发布一个Chrome插件/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="作为一个 Web 开发者，往 Chrome 浏览器上添加功能唯一需要学习的知识就是 Chrome 浏览器暴露的 JavaScript API。 搭建环境首先需要创建名字为manifest.json配置文件，该文件包含插件的信息，告诉 Chrome 该插件干什么的，需要哪些权限。 {     &amp;quot;manifest_version&amp;quot;: 2,     &amp;quot;name&amp;quot;">
+<meta property="og:description" content="创建并发布一个 Chrome 插件">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-15T05:14:40.136Z">
+<meta property="og:updated_time" content="2018-08-15T09:05:15.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="创建并发布一个Chrome插件">
-<meta name="twitter:description" content="作为一个 Web 开发者，往 Chrome 浏览器上添加功能唯一需要学习的知识就是 Chrome 浏览器暴露的 JavaScript API。 搭建环境首先需要创建名字为manifest.json配置文件，该文件包含插件的信息，告诉 Chrome 该插件干什么的，需要哪些权限。 {     &amp;quot;manifest_version&amp;quot;: 2,     &amp;quot;name&amp;quot;">
+<meta name="twitter:description" content="创建并发布一个 Chrome 插件">
 
 
 
@@ -310,7 +310,8 @@
       
 
       
-        <a id="more"></a>
+        <p>创建并发布一个 Chrome 插件</p>
+<a id="more"></a>
 <p>作为一个 Web 开发者，往 Chrome 浏览器上添加功能唯一需要学习的知识就是 Chrome 浏览器暴露的 JavaScript API。</p>
 <h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h4><p>首先需要创建名字为<code>manifest.json</code>配置文件，该文件包含插件的信息，告诉 Chrome 该插件干什么的，需要哪些权限。</p>
 <pre><code>{
@@ -344,15 +345,10 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><h4 id="加载扩展"><a href="#加载扩展" class="headerlink" title="加载扩展"></a>加载扩展</h4><p>在 Chrome 浏览器进入<code>chrome://extensions</code>，并允许”开发者模式”，然后点击”加载已解压的扩展程序”选择我们的目录即可。</p>
-<h4 id="其它相关"><a href="#其它相关" class="headerlink" title="其它相关"></a>其它相关</h4><p>Chrome扩展可以在你当前浏览的网页上运行脚本，你可以在<code>manifest.json</code>上添加下面的部分：</p>
+<h4 id="其它相关"><a href="#其它相关" class="headerlink" title="其它相关"></a>其它相关</h4><p>Chrome 扩展可以在你当前浏览的网页上运行脚本，你可以在<code>manifest.json</code>上添加下面的部分：</p>
 <pre><code>&quot;content_scripts&quot;: [
-     {
-         &quot;matches&quot;: [&quot;https://www.google.com/*&quot;],
-         &quot;css&quot;: [&quot;styles.css&quot;],
-         &quot;js&quot;: [&quot;scripts.js&quot;]
-     }
- ]
-</code></pre><p>该部分允许扩展匹配一个特定的URL，并且运行JavaScript或加载自定义的CSS。</p>
+</code></pre><p>{<br>“matches”: [“<a href="https://www.google.com/*&quot;]" target="_blank" rel="noopener">https://www.google.com/*&quot;]</a>,<br>“css”: [“styles.css”],<br>“js”: [“scripts.js”]<br>}<br>]</p>
+<p>该部分允许扩展匹配一个特定的 URL，并且运行 JavaScript 或加载自定义的 CSS。</p>
 
       
     </div>

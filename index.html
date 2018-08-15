@@ -560,52 +560,14 @@
 
       
         
-          
-            <a id="more"></a>
-<p>作为一个 Web 开发者，往 Chrome 浏览器上添加功能唯一需要学习的知识就是 Chrome 浏览器暴露的 JavaScript API。</p>
-<h4 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h4><p>首先需要创建名字为<code>manifest.json</code>配置文件，该文件包含插件的信息，告诉 Chrome 该插件干什么的，需要哪些权限。</p>
-<pre><code>{
-    &quot;manifest_version&quot;: 2,
-    &quot;name&quot;: &quot;Weibo Trending&quot;,
-    &quot;description&quot;: &quot;Show The Weibo Trending&quot;,
-    &quot;version&quot;: &quot;1.0&quot;,
-    &quot;browser_action&quot;: {
-        &quot;default_icon&quot;: &quot;weibo.png&quot;,
-        &quot;default_popup&quot;: &quot;popup.html&quot;,
-        &quot;default_title&quot;: &quot;Show the Weibo Trending&quot;
-    }
-}
-</code></pre><p>其中，<code>default_icon</code>作为扩展在工具条上的图标，当用户点击扩展图标时，会弹出<code>popup.html</code>内容。而<code>popup.html</code>是普通的 HTML 文件。</p>
-<pre><code>&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Weibo Trending&lt;/title&gt;
-    &lt;style&gt;
-        #popup {
-            width: 400px;
-            height: 300px;
-            text-align: center;
-            line-height: 200px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;popup&quot;&gt;
-        Weibo Trending
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><h4 id="加载扩展"><a href="#加载扩展" class="headerlink" title="加载扩展"></a>加载扩展</h4><p>在 Chrome 浏览器进入<code>chrome://extensions</code>，并允许”开发者模式”，然后点击”加载已解压的扩展程序”选择我们的目录即可。</p>
-<h4 id="其它相关"><a href="#其它相关" class="headerlink" title="其它相关"></a>其它相关</h4><p>Chrome扩展可以在你当前浏览的网页上运行脚本，你可以在<code>manifest.json</code>上添加下面的部分：</p>
-<pre><code>&quot;content_scripts&quot;: [
-     {
-         &quot;matches&quot;: [&quot;https://www.google.com/*&quot;],
-         &quot;css&quot;: [&quot;styles.css&quot;],
-         &quot;js&quot;: [&quot;scripts.js&quot;]
-     }
- ]
-</code></pre><p>该部分允许扩展匹配一个特定的URL，并且运行JavaScript或加载自定义的CSS。</p>
-
-          
+          <p>创建并发布一个 Chrome 插件</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/15/创建并发布一个Chrome插件/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
