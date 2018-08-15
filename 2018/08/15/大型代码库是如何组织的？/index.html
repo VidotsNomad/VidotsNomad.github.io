@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
-<meta property="og:type" content="website">
-<meta property="og:title" content="追风的日子">
-<meta property="og:url" content="http://yoursite.com/tags/Lua/index.html">
+<meta name="description" content="目前的话，大型库一般采用分包的形式，使用的工具主要有 yarn workspace 和 lerna。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大型代码库是如何组织的？">
+<meta property="og:url" content="http://yoursite.com/2018/08/15/大型代码库是如何组织的？/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
+<meta property="og:description" content="目前的话，大型库一般采用分包的形式，使用的工具主要有 yarn workspace 和 lerna。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-15T09:01:33.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="追风的日子">
-<meta name="twitter:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
+<meta name="twitter:title" content="大型代码库是如何组织的？">
+<meta name="twitter:description" content="目前的话，大型库一般采用分包的形式，使用的工具主要有 yarn workspace 和 lerna。">
 
 
 
@@ -118,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Lua/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/15/大型代码库是如何组织的？/"/>
 
 
 
 
 
-  <title>Tag: Lua | 追风的日子</title>
+  <title>大型代码库是如何组织的？ | 追风的日子</title>
   
 
 
@@ -143,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,54 +228,175 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Lua<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/大型代码库是如何组织的？/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vidots Nomad">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="追风的日子">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/07/Lua知识回顾/" itemprop="url">
-              
-                <span itemprop="name">Lua知识回顾</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">大型代码库是如何组织的？</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-07T22:29:49+08:00"
-              content="2018-08-07" >
-          08-07
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-15T16:17:49+08:00">
+                2018-08-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>目前的话，大型库一般采用分包的形式，使用的工具主要有 yarn workspace 和 lerna。</p>
+<a id="more"></a>
+<h4 id="lerna-教程"><a href="#lerna-教程" class="headerlink" title="lerna 教程"></a>lerna 教程</h4><p>lerna 允许你在单个代码库中使用多个<code>npm</code>包，这种范式叫作<code>monorepo</code>。</p>
+<p>安装 lerna 命令行工具：</p>
+<pre><code>$ npm install lerna -g 或 yarn global add lerna
+</code></pre><p>运行<code>lerna init</code>命令，该命令创建<code>packages</code>目录，更新<code>package.json</code>文件，创建<code>lerna.json</code>文件。</p>
+<p><code>packages</code>目录存放所有包的地方，我们先创建一个新包<code>alpha</code>：</p>
+<pre><code>$ cd packages
+$ mkdir alpha
+$ cd alpha
+$ npm init -y
+$ echo &quot;module.exports = &apos;alpha&apos;&quot; &gt; index.js
+</code></pre><p>执行相同的操作，来创建另一个包<code>beta</code>。</p>
+<p>最后创建<code>usage</code>包，使用<code>alpha</code>和<code>beta</code>作为依赖项。</p>
+<p>打开<code>usage</code>包，创建<code>index.js</code>，并写入以下的内容：</p>
+<pre><code>var alpha = require(&quot;alpha&quot;)
+var beta = require(&quot;beta&quot;)
+console.log(alpha + &quot; &quot; + beta)
+</code></pre><p>接下来，进入<code>usage</code>包的<code>package.json</code>文件，添加<code>dependencies</code>：</p>
+<pre><code>&quot;dependencies&quot;: {
+    &quot;alpha&quot;: &quot;1.0.0&quot;,
+    &quot;beta&quot;: &quot;1.0.0&quot;
+}
+</code></pre><p>运行<code>lerna bootstrap</code>来将各个包链接起来。</p>
+<h4 id="yarn-workspace"><a href="#yarn-workspace" class="headerlink" title="yarn workspace"></a>yarn workspace</h4><p>使用<code>yarn workspace</code>来实现下上面的效果。</p>
+<p>在根目录下<code>npm init</code>后，在产生的<code>package.json</code>文件中添加：</p>
+<pre><code>&quot;private&quot;: true,
+&quot;workspaces&quot;: [&quot;packages/alpha&quot;, &quot;packages/beta&quot;],
+</code></pre><p>在根目录下创建<code>packages</code>目录，并在<code>packages</code>目录下创建<code>alpha</code>、<code>beta</code>和<code>usage</code>目录，并且在三个目录下<code>npm init</code>初始化包。并且创建对应的<code>index.js</code>文件，内容与上一部分一致。</p>
+<p>需要在<code>usage</code>目录下的<code>package.json</code>文件中添加：</p>
+<pre><code>&quot;dependencies&quot;: {
+      &quot;beta&quot;: &quot;5.0.5&quot;,
+      &quot;alpha&quot;: &quot;1.0.0&quot;
+  },
+</code></pre><p>需要运行<code>yarn</code>命令进行依赖项的链接才能运行。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/15/Chrome扩展知识/" rel="next" title="Chrome扩展知识">
+                <i class="fa fa-chevron-left"></i> Chrome扩展知识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -282,6 +404,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -302,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -354,6 +489,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#lerna-教程"><span class="nav-number">1.</span> <span class="nav-text">lerna 教程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#yarn-workspace"><span class="nav-number">2.</span> <span class="nav-text">yarn workspace</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -487,6 +638,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
