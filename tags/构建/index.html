@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Chrome插件," />
+  <meta name="keywords" content="Web-Development" />
 
 
 
@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="记录学习 Chrome 扩展开发的知识">
-<meta name="keywords" content="Chrome插件">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Chrome扩展知识">
-<meta property="og:url" content="http://yoursite.com/2018/08/15/Chrome扩展知识/index.html">
+<meta name="description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
+<meta property="og:type" content="website">
+<meta property="og:title" content="追风的日子">
+<meta property="og:url" content="http://yoursite.com/tags/构建/index.html">
 <meta property="og:site_name" content="追风的日子">
-<meta property="og:description" content="记录学习 Chrome 扩展开发的知识">
+<meta property="og:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-15T09:01:59.135Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chrome扩展知识">
-<meta name="twitter:description" content="记录学习 Chrome 扩展开发的知识">
+<meta name="twitter:title" content="追风的日子">
+<meta name="twitter:description" content="Vidots的技术博客，主要涵盖JavaScript、Corona游戏开发，以及其它的知识学习">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/15/Chrome扩展知识/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/构建/"/>
 
 
 
 
 
-  <title>Chrome扩展知识 | 追风的日子</title>
+  <title>Tag: 构建 | 追风的日子</title>
   
 
 
@@ -145,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,164 +227,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>构建<small>Tag</small>
+        </h2>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/Chrome扩展知识/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vidots Nomad">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="追风的日子">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h3 class="post-title">
         
-        
-          <h2 class="post-title" itemprop="name headline">Chrome扩展知识</h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2018/08/15/大型代码库是如何组织的？/" itemprop="url">
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span itemprop="name">大型代码库是如何组织的？</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-15T13:52:50+08:00">
-                2018-08-15
-              </time>
-            
+            </a>
+        
+      </h3>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-08-15T16:17:49+08:00"
+              content="2018-08-15" >
+          08-15
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>记录学习 Chrome 扩展开发的知识</p>
-<a id="more"></a>
-<h4 id="扩展的架构"><a href="#扩展的架构" class="headerlink" title="扩展的架构"></a>扩展的架构</h4><p>扩展的架构取决于它的功能，但是大多数功能强大的扩展都会包括多个组件：</p>
-<ul>
-<li>Manifest</li>
-<li>Background Script</li>
-<li>UI Elements</li>
-<li>Content Script</li>
-<li>Options Page</li>
-</ul>
-<p><code>Background Script</code>是扩展的事件处理器，它包含了浏览器事件的监听器。</p>
-<p><code>UI Elements</code>是扩展的用户界面，大多数的扩展都有<code>browser action</code>或<code>page action</code>，但是也可以包含其它形式的 UI，例如<code>context menu</code>、<code>omnibox</code>或<code>keyboard shortcut</code>。</p>
-<p><code>Content scripts</code>可以用来读写网页，它包含了 JavaScript，可以在已经加载到浏览器的网页的上下文中执行。</p>
-<p><code>Options Page</code>：允许扩展的自定义。</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Chrome插件/" rel="tag"># Chrome插件</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/08/15/创建并发布一个Chrome插件/" rel="next" title="创建并发布一个Chrome插件">
-                <i class="fa fa-chevron-left"></i> 创建并发布一个Chrome插件
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/15/大型代码库是如何组织的？/" rel="prev" title="大型代码库是如何组织的？">
-                大型代码库是如何组织的？ <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -394,10 +282,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -418,17 +302,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -479,22 +354,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#扩展的架构"><span class="nav-number">1.</span> <span class="nav-text">扩展的架构</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -622,10 +481,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
